@@ -41,7 +41,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             </button>
             <button 
               onClick={onStart} 
-              className="bg-white text-[#0f0f14] border-1.5 border-[#403690] px-7 py-3.5 font-semibold hover:bg-[#ece9fd] transition-all cursor-pointer"
+              className="bg-white text-[#0f0f14] border-2 border-[#403690] px-7 py-3.5 font-semibold hover:bg-[#ece9fd] transition-all cursor-pointer"
             >
               View Demo
             </button>
