@@ -10,14 +10,18 @@ import {
   Rocket, 
   LayoutGrid, 
   TrendingUp, 
-  ChevronDown
+  Upload, 
+  Lock, 
+  ChevronDown,
+  Sparkles
 } from "lucide-react";
 
 interface OnboardingProps {
   onBack: () => void;
+  onComplete?: (data: any) => void;
 }
 
-export default function XvoraOnboarding({ onBack }: OnboardingProps) {
+export default function XvoraOnboarding({ onBack, onComplete }: OnboardingProps) {
   const [currentStep, setCurrentStep] = useState(1);
   const [startupName, setStartupName] = useState("");
   const [industry, setIndustry] = useState("");
@@ -29,7 +33,11 @@ export default function XvoraOnboarding({ onBack }: OnboardingProps) {
     if (currentStep < 3) {
       setCurrentStep(currentStep + 1);
     } else {
-      alert(`Startup Brief generated successfully for ${startupName || "your startup"}!`);
+      if (onComplete) {
+        onComplete({ startupName, industry, stage, description, selectedGoal });
+      } else {
+        alert(`Startup Brief generated successfully for ${startupName || "your startup"}!`);
+      }
     }
   };
 
