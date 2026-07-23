@@ -1,18 +1,4 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Check, 
-  ChevronLeft, 
-  ArrowRight, 
-  ShieldCheck, 
-  Rocket, 
-  LayoutGrid, 
-  TrendingUp, 
-  Upload, 
-  Lock, 
-  ChevronDown,
-  Sparkles
-} from "lucide-react";
 
 interface OnboardingProps {
   onBack: () => void;
@@ -21,7 +7,6 @@ interface OnboardingProps {
 
 export default function XvoraOnboarding({ onBack, onComplete }: OnboardingProps) {
   const [currentStep, setCurrentStep] = useState(1);
-
   const [startupName, setStartupName] = useState("");
   const [industry, setIndustry] = useState("");
   const [stage, setStage] = useState("");
@@ -31,20 +16,12 @@ export default function XvoraOnboarding({ onBack, onComplete }: OnboardingProps)
   const handleNext = () => {
     if (currentStep < 3) {
       setCurrentStep(currentStep + 1);
-    } else {
-      if (onComplete) {
-        onComplete({
-          startupName,
-          industry,
-          stage,
-          description,
-          selectedGoal
-        });
-      }
+    } else if (onComplete) {
+      onComplete({ startupName, industry, stage, description, selectedGoal });
     }
   };
 
-  const handleBack = () => {
+  const handleBackBtn = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
     } else {
@@ -53,206 +30,201 @@ export default function XvoraOnboarding({ onBack, onComplete }: OnboardingProps)
   };
 
   const goals = [
-    { title: "Validate my startup idea", description: "Find out whether my idea solves a real problem." },
-    { title: "Research my market", description: "Research market size, trends, and opportunities." },
-    { title: "Analyze my competitors", description: "Discover competitors and identify gaps in the market." },
-    { title: "Define my positioning", description: "Clarify my value proposition and differentiation." },
-    { title: "Build my go-to-market strategy", description: "Learn how to reach and acquire my first customers." },
-    { title: "Create an action plan", description: "Get personalized next steps to move my startup forward." },
-    { title: "I'm not sure yet ✨", description: "Let Xvora decide what deserves the most attention." }
+    "Validate my startup idea",
+    "Research my market",
+    "Analyze my competitors",
+    "Define my positioning",
+    "Build my go-to-market strategy",
+    "Create an action plan",
+    "I'm not sure yet ✨"
   ];
 
   return (
-    <div className="min-h-screen w-full bg-[#F8F9FB] flex flex-col items-center justify-center p-4 font-sans text-neutral-900 select-none">
-      <div className="w-full max-w-[1400px] h-[90vh] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-100 flex overflow-hidden relative">
-        
-        {/* SIDEBAR */}
-        <div className="w-[320px] bg-[#FAFAFC] border-r border-neutral-200/60 pt-10 px-8 flex flex-col justify-between shrink-0">
+    <div className="onboarding-container">
+      <style>{`
+        .onboarding-container {
+          min-height: 100vh;
+          background: #F8F9FB;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: 'Geist', sans-serif;
+          padding: 20px;
+        }
+        .onboarding-box {
+          width: 100%;
+          max-width: 1000px;
+          background: #ffffff;
+          border-radius: 16px;
+          box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+          display: flex;
+          overflow: hidden;
+          min-height: 550px;
+        }
+        .sidebar {
+          width: 280px;
+          background: #FAFAFC;
+          border-right: 1px solid #e6e6ef;
+          padding: 32px 24px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+        .logo-area {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-weight: 800;
+          cursor: pointer;
+          margin-bottom: 40px;
+        }
+        .logo-badge {
+          width: 28px; height: 28px;
+          background: #403690;
+          color: white;
+          border-radius: 6px;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 14px;
+        }
+        .step-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 24px;
+          font-size: 14px;
+          color: #6b7280;
+        }
+        .step-item.active {
+          color: #403690;
+          font-weight: 700;
+        }
+        .step-circle {
+          width: 24px; height: 24px;
+          border-radius: 50%;
+          border: 2px solid #d1d5db;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 12px;
+        }
+        .step-item.active .step-circle {
+          border-color: #403690;
+          background: #403690;
+          color: white;
+        }
+        .content-area {
+          flex: 1;
+          padding: 48px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+        h2 { font-size: 24px; font-weight: 800; color: #0f0f14; margin-bottom: 8px; }
+        p.sub { font-size: 14px; color: #6b7280; margin-bottom: 32px; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; color: #333; }
+        .form-group input, .form-group select, .form-group textarea {
+          width: 100%; padding: 12px 16px; border: 1px solid #e6e6ef; border-radius: 8px; font-size: 14px; outline: none;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+          border-color: #403690;
+        }
+        .goal-option {
+          display: flex; align-items: center; gap: 12px;
+          padding: 12px 16px; border: 1px solid #e6e6ef; border-radius: 8px;
+          margin-bottom: 10px; cursor: pointer; text-align: left; font-size: 14px;
+        }
+        .goal-option.selected { border-color: #403690; background: #ece9fd; font-weight: 600; }
+        .footer-controls {
+          display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e6e6ef; padding-top: 24px;
+        }
+        .btn-back { background: #fff; border: 1px solid #e6e6ef; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .btn-next { background: #403690; color: white; border: none; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .btn-next:hover { background: #332a73; }
+      `}</style>
+
+      <div className="onboarding-box">
+        <div className="sidebar">
           <div>
-            {/* Logo Area */}
-            <div className="flex items-center gap-2 mb-12 cursor-pointer" onClick={onBack}>
-              <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
-                X
-              </div>
-              <span className="font-bold tracking-wider text-sm text-neutral-900">XVORA</span>
+            <div className="logo-area" onClick={onBack}>
+              <div className="logo-badge">X</div>
+              <span>XVORA</span>
             </div>
-
-            {/* Steps Progress */}
-            <div className="relative pl-2">
-              <div className="absolute left-[15px] top-[24px] bottom-[24px] w-[2px] bg-neutral-200" />
-
-              {/* Step 1 */}
-              <div className="relative flex items-start gap-4 mb-8">
-                <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-medium z-10 transition-colors ${
-                  currentStep > 1 ? "bg-[#6366F1] text-white" : currentStep === 1 ? "bg-[#6366F1] text-white ring-4 ring-indigo-50" : "bg-white border-2 border-neutral-300 text-neutral-500"
-                }`}>
-                  {currentStep > 1 ? <Check className="w-3.5 h-3.5" /> : "1"}
-                </div>
-                <div>
-                  <h4 className={`text-sm font-semibold ${currentStep === 1 ? "text-[#6366F1]" : "text-neutral-900"}`}>
-                    Create your startup
-                  </h4>
-                  <p className="text-xs text-neutral-500 mt-0.5">Let's start with the basics.</p>
-                </div>
-              </div>
-
-              {/* Step 2 */}
-              <div className="relative flex items-start gap-4 mb-8">
-                <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-medium z-10 transition-colors ${
-                  currentStep > 2 ? "bg-[#6366F1] text-white" : currentStep === 2 ? "bg-[#6366F1] text-white ring-4 ring-indigo-50" : "bg-white border-2 border-neutral-300 text-neutral-500"
-                }`}>
-                  {currentStep > 2 ? <Check className="w-3.5 h-3.5" /> : "2"}
-                </div>
-                <div>
-                  <h4 className={`text-sm font-semibold ${currentStep === 2 ? "text-[#6366F1]" : "text-neutral-900"}`}>
-                    About your startup
-                  </h4>
-                  <p className="text-xs text-neutral-500 mt-0.5">Tell us what you're building.</p>
-                </div>
-              </div>
-
-              {/* Step 3 */}
-              <div className="relative flex items-start gap-4">
-                <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-medium z-10 transition-colors ${
-                  currentStep === 3 ? "bg-[#6366F1] text-white ring-4 ring-indigo-50" : "bg-white border-2 border-neutral-300 text-neutral-500"
-                }`}>
-                  3
-                </div>
-                <div>
-                  <h4 className={`text-sm font-semibold ${currentStep === 3 ? "text-[#6366F1]" : "text-neutral-900"}`}>
-                    Your goals
-                  </h4>
-                  <p className="text-xs text-neutral-500 mt-0.5">What do you want to achieve?</p>
-                </div>
-              </div>
+            <div className={`step-item ${currentStep === 1 ? "active" : ""}`}>
+              <div className="step-circle">1</div>
+              <span>Create your startup</span>
+            </div>
+            <div className={`step-item ${currentStep === 2 ? "active" : ""}`}>
+              <div className="step-circle">2</div>
+              <span>About your startup</span>
+            </div>
+            <div className={`step-item ${currentStep === 3 ? "active" : ""}`}>
+              <div className="step-circle">3</div>
+              <span>Your goals</span>
             </div>
           </div>
-
-          {/* Security Card */}
-          <div className="mb-8 bg-white border border-neutral-200/80 rounded-xl p-4 shadow-sm flex items-start gap-3">
-            <div className="p-2 bg-indigo-50 rounded-lg text-[#6366F1] shrink-0">
-              <ShieldCheck className="w-4 h-4" />
-            </div>
-            <div>
-              <h5 className="text-xs font-semibold text-neutral-900">Your data is private and secure.</h5>
-              <p className="text-[11px] text-neutral-500 mt-0.5">We never share your information.</p>
-            </div>
-          </div>
+          <div style={{ fontSize: "11px", color: "#8a8a95" }}>Your data is private & secure.</div>
         </div>
 
-        {/* CONTENT AREA */}
-        <div className="flex-1 h-full overflow-y-auto px-16 py-12 flex flex-col justify-between">
-          <div className="max-w-[850px] w-full mx-auto">
-            <AnimatePresence mode="wait">
-              
-              {/* STEP 1 */}
-              {currentStep === 1 && (
-                <motion.div key="step1" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="w-full">
-                  <div>
-                    <h1 className="text-3xl font-bold tracking-tight text-neutral-900">Let's create your startup</h1>
-                    <p className="text-neutral-500 mt-2 text-sm">Let's set up your workspace. You can always update these details later.</p>
+        <div className="content-area">
+          <div>
+            {currentStep === 1 && (
+              <div>
+                <h2>Let's create your startup</h2>
+                <p className="sub">Set up your workspace basics.</p>
+                <div className="form-group">
+                  <label>Startup Name</label>
+                  <input type="text" value={startupName} onChange={(e) => setStartupName(e.target.value)} placeholder="e.g. Xvora" />
+                </div>
+                <div className="form-group">
+                  <label>Industry</label>
+                  <select value={industry} onChange={(e) => setIndustry(e.target.value)}>
+                    <option value="" disabled>Select your industry</option>
+                    <option value="SaaS">SaaS & Software</option>
+                    <option value="Fintech">Fintech</option>
+                    <option value="AI">Artificial Intelligence</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>Startup Stage</label>
+                  <select value={stage} onChange={(e) => setStage(e.target.value)}>
+                    <option value="" disabled>Select stage</option>
+                    <option value="Idea">Idea</option>
+                    <option value="Building MVP">Building MVP</option>
+                    <option value="Growing">Growing</option>
+                  </select>
+                </div>
+              </div>
+            )}
+
+            {currentStep === 2 && (
+              <div>
+                <h2>Tell us about your startup</h2>
+                <p className="sub">Describe what you are building.</p>
+                <div className="form-group">
+                  <label>Description</label>
+                  <textarea rows={6} value={description} onChange={(e) => setDescription(e.target.value)} placeholder="We are building an AI platform that..." />
+                </div>
+              </div>
+            )}
+
+            {currentStep === 3 && (
+              <div>
+                <h2>What would you like help with first?</h2>
+                <p className="sub">Choose your main objective.</p>
+                {goals.map((goal, idx) => (
+                  <div key={idx} onClick={() => setSelectedGoal(goal)} className={`goal-option ${selectedGoal === goal ? "selected" : ""}`}>
+                    <input type="radio" checked={selectedGoal === goal} readOnly />
+                    <span>{goal}</span>
                   </div>
-
-                  <div className="mt-10 space-y-6">
-                    <div>
-                      <label className="block text-xs font-semibold text-neutral-900 uppercase tracking-wider mb-2">Startup Name</label>
-                      <div className="relative">
-                        <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-neutral-400"><Rocket className="w-4 h-4" /></span>
-                        <input type="text" value={startupName} onChange={(e) => setStartupName(e.target.value)} placeholder="e.g. Xvora" className="w-full pl-10 pr-4 py-2.5 bg-white border border-neutral-200 rounded-xl text-sm text-neutral-900 focus:outline-none focus:border-[#6366F1]" />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold text-neutral-900 uppercase tracking-wider mb-2">Industry</label>
-                      <div className="relative">
-                        <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-neutral-400"><LayoutGrid className="w-4 h-4" /></span>
-                        <select value={industry} onChange={(e) => setIndustry(e.target.value)} className="w-full pl-10 pr-10 py-2.5 bg-white border border-neutral-200 rounded-xl text-sm text-neutral-900 appearance-none focus:outline-none focus:border-[#6366F1]">
-                          <option value="" disabled>Select your industry</option>
-                          <option value="SaaS">SaaS & Software</option>
-                          <option value="Fintech">Fintech</option>
-                          <option value="AI">Artificial Intelligence</option>
-                          <option value="E-commerce">E-commerce</option>
-                          <option value="Healthcare">Healthcare</option>
-                          <option value="Other">Other</option>
-                        </select>
-                        <span className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-neutral-400"><ChevronDown className="w-4 h-4" /></span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold text-neutral-900 uppercase tracking-wider mb-2">Startup Stage</label>
-                      <div className="relative">
-                        <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-neutral-400"><TrendingUp className="w-4 h-4" /></span>
-                        <select value={stage} onChange={(e) => setStage(e.target.value)} className="w-full pl-10 pr-10 py-2.5 bg-white border border-neutral-200 rounded-xl text-sm text-neutral-900 appearance-none focus:outline-none focus:border-[#6366F1]">
-                          <option value="" disabled>Select stage</option>
-                          <option value="Idea">Idea</option>
-                          <option value="Building MVP">Building MVP</option>
-                          <option value="Recently Launched">Recently Launched</option>
-                          <option value="Growing">Growing</option>
-                          <option value="Scaling">Scaling</option>
-                        </select>
-                        <span className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-neutral-400"><ChevronDown className="w-4 h-4" /></span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* STEP 2 */}
-              {currentStep === 2 && (
-                <motion.div key="step2" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="w-full">
-                  <div>
-                    <h1 className="text-3xl font-bold tracking-tight text-neutral-900">Tell us about your startup</h1>
-                    <p className="text-neutral-500 mt-2 text-sm">Help Xvora understand your startup so we can generate a personalized Startup Brief.</p>
-                  </div>
-
-                  <div className="mt-8 space-y-6">
-                    <div>
-                      <label className="block text-xs font-semibold text-neutral-900 uppercase tracking-wider mb-1">Describe your startup</label>
-                      <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="We're building an AI platform..." className="w-full h-[220px] p-4 bg-white border border-neutral-200 rounded-xl text-sm text-neutral-900 focus:outline-none focus:border-[#6366F1] resize-none" />
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* STEP 3 */}
-              {currentStep === 3 && (
-                <motion.div key="step3" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="w-full">
-                  <div>
-                    <h1 className="text-3xl font-bold tracking-tight text-neutral-900">What would you like Xvora to help you with first?</h1>
-                    <p className="text-neutral-500 mt-2 text-sm">Choose one. We'll personalize your Startup Brief based on your selection.</p>
-                  </div>
-
-                  <div className="mt-8 space-y-3">
-                    {goals.map((goal, idx) => {
-                      const isSelected = selectedGoal === goal.title;
-                      return (
-                        <div key={idx} onClick={() => setSelectedGoal(goal.title)} className={`flex items-center justify-between p-4 rounded-xl border transition-all cursor-pointer ${isSelected ? "border-[#6366F1] bg-[#F8F7FF]" : "border-neutral-200 bg-white"}`}>
-                          <div className="flex items-start gap-3.5">
-                            <input type="radio" name="goal" checked={isSelected} onChange={() => setSelectedGoal(goal.title)} className="mt-1 accent-[#6366F1] cursor-pointer" />
-                            <div>
-                              <h4 className="text-sm font-semibold text-neutral-900">{goal.title}</h4>
-                              <p className="text-xs text-neutral-500 mt-0.5">{goal.description}</p>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </motion.div>
-              )}
-
-            </AnimatePresence>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Footer Controls */}
-          <div className="max-w-[850px] w-full mx-auto pt-6 flex items-center justify-between border-t border-neutral-100">
-            <button onClick={handleBack} className="px-5 py-2.5 border border-neutral-200 rounded-xl text-xs font-semibold text-neutral-700 hover:bg-neutral-50 flex items-center gap-2 bg-white shadow-sm cursor-pointer">
-              <ChevronLeft className="w-4 h-4" /> Back
-            </button>
-
-            <button onClick={handleNext} className="px-6 py-2.5 bg-[#6366F1] hover:bg-[#5558DD] text-white rounded-xl text-xs font-semibold shadow-sm flex items-center gap-2 cursor-pointer">
-              {currentStep === 3 ? "Generate My Startup Brief" : "Continue"} <ArrowRight className="w-4 h-4" />
+          <div className="footer-controls">
+            <button onClick={handleBackBtn} className="btn-back">Back</button>
+            <button onClick={handleNext} className="btn-next">
+              {currentStep === 3 ? "Generate Brief" : "Continue"}
             </button>
           </div>
         </div>
