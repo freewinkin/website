@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import LandingPage from "./LandingPage";
 import XvoraOnboarding from "./XvoraOnboarding";
