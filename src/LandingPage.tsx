@@ -83,17 +83,17 @@ export default function LandingPage({ onStart }: LandingPageProps) {
           max-width:600px;
         }
         .hero-copy h1{
-          font-size:42px;
-          line-height:1.15;
+          font-size:48px;
+          line-height:1.12;
           font-weight:800;
           letter-spacing:-0.02em;
-          margin:0 0 20px 0;
+          margin:0 0 22px 0;
         }
         .hero-copy p{
-          font-size:16px;
+          font-size:17px;
           line-height:1.6;
           color:var(--muted);
-          margin:0 0 28px 0;
+          margin:0 0 34px 0;
           max-width:520px;
         }
         .hero-actions{
@@ -208,27 +208,81 @@ export default function LandingPage({ onStart }: LandingPageProps) {
           .navbar{padding:16px 20px;}
           .nav-links{display:none;}
           .hero{flex-direction:column;padding:36px 20px;}
-          .hero-copy h1{font-size:32px;}
+          .hero-copy h1{font-size:36px;}
           .hero-diagram{width:100%;}
         }
         section{max-width:1200px;margin:0 auto;padding:0 48px;}
         .accent{color:var(--purple);}
-        .features{padding:30px 0 20px;}
-        .features-head{max-width:640px;margin:0 auto 50px;text-align:center;}
-        .features-head h2{font-size:26px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px;}
-        .features-head p{font-size:15px;line-height:1.6;color:var(--muted);margin:0;}
+        .features{padding-top:40px;padding-bottom:20px;}
+        .features-head{max-width:640px;margin:0 auto 60px;text-align:center;}
+        .features-head h2{font-size:30px;font-weight:800;letter-spacing:-0.01em;margin:0 0 14px;}
+        .features-head p{font-size:15px;line-height:1.7;color:var(--muted);margin:0;}
+        .feature-row{
+          display:flex;
+          align-items:center;
+          gap:64px;
+          margin-bottom:90px;
+        }
+        .feature-row.reverse{flex-direction:row-reverse;}
+        .feature-text{flex:1 1 320px;}
+        .feature-text h3{font-size:22px;font-weight:700;color:var(--purple);margin:0 0 16px;}
+        .feature-text p{font-size:15px;line-height:1.7;color:var(--ink);margin:0 0 12px;max-width:360px;}
+        .feature-visual{flex:1 1 340px;display:flex;justify-content:center;}
+        .sticky-note{
+          position:relative;
+          width:100%;
+          max-width:360px;
+          aspect-ratio:4/3;
+          background:#fdfdfa;
+          border-radius:4px;
+          box-shadow:0 18px 34px rgba(20,15,50,0.12);
+          padding:26px 24px;
+          transform:rotate(-2deg);
+        }
+        .sticky-note .tape{
+          position:absolute;
+          top:-14px;left:50%;
+          width:90px;height:28px;
+          background:rgba(200,200,210,0.55);
+          border:1px solid rgba(180,180,190,0.4);
+          transform:translateX(-50%) rotate(-3deg);
+        }
+        .sticky-note .note-title{
+          font-size:19px;
+          font-weight:700;
+          color:var(--ink);
+          line-height:1.25;
+          margin:14px 0 16px;
+        }
+        .sticky-note .doodle{
+          display:block;
+          width:100%;
+          height:auto;
+          margin-bottom:10px;
+        }
+        .sticky-note .note-sub{font-size:14px;color:#444;margin:2px 0;line-height:1.5;}
+        .sticky-note .note-circle{
+          display:inline-block;
+          margin-top:10px;
+          padding:4px 16px;
+          border:2px solid var(--purple);
+          border-radius:50%;
+          font-size:14px;
+          font-weight:700;
+          color:var(--purple);
+        }
         .brief-section{padding:50px 48px 40px;text-align:center;}
-        .brief-section h2{font-size:24px;font-weight:800;margin:0 0 6px;}
-        .brief-section .subtext{font-size:14px;color:var(--muted);margin:0 0 36px;}
+        .brief-section h2{font-size:28px;font-weight:800;margin:0 0 8px;}
+        .brief-section .subtext{font-size:14px;color:var(--muted);margin:0 0 40px;}
         .brief-outer{
           position:relative;
           max-width:640px;
-          margin:36px auto 36px;
+          margin:40px auto 40px;
         }
         .brief-shadow{
           position:absolute;
           inset:0;
-          top:10px;left:10px;
+          top:14px;left:14px;
           background:#0d0d1a;
           border-radius:22px;
           z-index:0;
@@ -243,7 +297,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         }
         .brief-tab{
           position:absolute;
-          top:-18px;
+          top:-20px;
           left:26px;
           z-index:2;
           display:flex;
@@ -252,50 +306,168 @@ export default function LandingPage({ onStart }: LandingPageProps) {
           background:#0d0d1a;
           color:#fff;
           border-radius:24px;
-          padding:6px 16px 6px 12px;
-          font-size:12px;
+          padding:8px 18px 8px 14px;
+          font-size:13px;
           font-weight:700;
         }
-        .brief-card{padding:36px 30px 24px;}
-        .brief-card h3{font-size:19px;font-weight:800;margin:0 0 4px;}
-        .brief-card .brief-sub{font-size:13.5px;color:var(--muted);margin:0;}
-        .brief-cta{text-align:center;margin-top:10px;}
-        .steps-section{padding:50px 48px 30px;text-align:center;}
+        .brief-card{padding:44px 34px 26px;}
+        .brief-card h3{font-size:21px;font-weight:800;margin:0 0 6px;}
+        .brief-card .brief-sub{font-size:14px;color:var(--muted);margin:0 0 26px;}
+        .brief-list{list-style:none;margin:0;padding:0;}
+        .brief-list li{
+          display:flex;
+          align-items:center;
+          gap:14px;
+          padding:14px 0;
+          border-top:1px solid var(--line);
+        }
+        .brief-list li:first-child{border-top:none;}
+        .brief-icon{
+          width:38px;height:38px;
+          border-radius:8px;
+          background:var(--purple-soft);
+          display:flex;align-items:center;justify-content:center;
+          flex-shrink:0;
+        }
+        .brief-item-text strong{display:block;font-size:14.5px;font-weight:700;}
+        .brief-item-text span{display:block;font-size:13px;color:var(--muted);margin-top:2px;}
+        .brief-check{width:18px;height:18px;color:var(--purple);flex-shrink:0;}
+        .ready-note{
+          text-align:right;
+          color:#8a8a95;
+          font-size:16px;
+          margin:18px 20px 0 0;
+          padding-bottom:22px;
+        }
+        .ready-note .squiggle{
+          color:#403690;
+          text-decoration:underline;
+          text-decoration-style:wavy;
+        }
+        .brief-cta{text-align:center;}
+        .steps-section{padding:50px 48px 40px;text-align:center;}
         .steps-section .eyebrow{
-          font-size:11.5px;
+          font-size:12px;
           font-weight:700;
           letter-spacing:0.08em;
           color:var(--purple);
-          margin:0 0 8px;
+          margin:0 0 10px;
         }
-        .steps-section h2{font-size:24px;font-weight:800;margin:0;}
-        .faq-section{padding:40px 48px 40px;text-align:center;}
-        .faq-section h2{font-size:24px;font-weight:800;margin:0 0 6px;}
-        .faq-section .subtext{font-size:14px;color:var(--muted);margin:0;}
+        .steps-section h2{font-size:26px;font-weight:800;margin:0 0 40px;}
+        .steps-row{
+          display:flex;
+          align-items:flex-start;
+          justify-content:center;
+          gap:0;
+          flex-wrap:wrap;
+        }
+        .step-card{
+          flex:1 1 240px;
+          max-width:280px;
+          text-align:left;
+          background:#fafafd;
+          border-radius:14px;
+          padding:26px 22px;
+        }
+        .step-num{
+          display:inline-block;
+          font-size:12px;
+          font-weight:700;
+          color:var(--purple);
+          background:var(--purple-soft);
+          border-radius:20px;
+          padding:3px 10px;
+          margin-bottom:16px;
+        }
+        .step-icon{
+          width:42px;height:42px;
+          border-radius:10px;
+          background:var(--purple-soft);
+          display:flex;align-items:center;justify-content:center;
+          margin-bottom:14px;
+        }
+        .step-card h4{font-size:15.5px;font-weight:700;margin:0 0 8px;}
+        .step-card p{font-size:13.5px;line-height:1.6;color:var(--muted);margin:0;}
+        .step-arrow{
+          flex:0 0 auto;
+          align-self:center;
+          color:#c9c3f7;
+          font-size:20px;
+          padding:0 14px;
+        }
+        .faq-section{padding:50px 48px 50px;text-align:center;}
+        .faq-section h2{font-size:26px;font-weight:800;margin:0 0 8px;}
+        .faq-section .subtext{font-size:14px;color:var(--muted);margin:0 0 30px;}
+        .faq-list{max-width:680px;margin:0 auto;text-align:left;border-top:1px solid var(--line);}
+        .faq-item{border-bottom:1px solid var(--line);}
+        .faq-item summary{
+          list-style:none;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          padding:18px 4px;
+          font-size:14.5px;
+          font-weight:600;
+          cursor:pointer;
+        }
+        .faq-item .plus{
+          font-size:18px;
+          color:var(--purple);
+          flex-shrink:0;
+          margin-left:14px;
+        }
+        .faq-item[open] .plus{transform:rotate(45deg);}
+        .faq-item p{
+          margin:0 4px 20px;
+          font-size:13.5px;
+          line-height:1.7;
+          color:var(--muted);
+        }
         .cta-band{
           max-width:1120px;
-          margin:10px auto 50px;
+          margin:20px auto 60px;
           background:var(--purple-soft);
           border-radius:18px;
-          padding:36px 28px;
+          padding:48px 32px;
           text-align:center;
         }
-        .cta-band h2{font-size:22px;font-weight:800;margin:0 0 6px;}
-        .cta-band p{font-size:14px;color:#514c78;margin:0 0 20px;}
+        .cta-band h2{font-size:24px;font-weight:800;margin:0 0 8px;}
+        .cta-band p{font-size:14.5px;color:#514c78;margin:0 0 26px;}
         .site-footer{
           border-top:1px solid var(--line);
-          padding:32px 48px 24px;
+          padding:48px 48px 28px;
         }
         .footer-top{
           max-width:1200px;
-          margin:0 auto;
+          margin:0 auto 32px;
           display:flex;
           flex-wrap:wrap;
           gap:40px;
           justify-content:space-between;
         }
         .footer-brand{flex:1 1 260px;max-width:300px;}
-        .footer-brand p{font-size:13px;line-height:1.5;color:var(--muted);margin:0;}
+        .footer-brand p{font-size:13px;line-height:1.6;color:var(--muted);margin:0;}
+        .footer-col h5{font-size:13px;font-weight:700;margin:0 0 14px;}
+        .footer-col a{
+          display:block;
+          font-size:13.5px;
+          color:var(--muted);
+          text-decoration:none;
+          margin-bottom:10px;
+        }
+        .footer-bottom{
+          max-width:1200px;
+          margin:0 auto;
+          padding-top:24px;
+          border-top:1px solid var(--line);
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          flex-wrap:wrap;
+          gap:14px;
+        }
+        .socials{display:flex;gap:14px;}
+        .socials a{color:var(--muted);display:flex;}
       `}</style>
 
       <nav className="navbar">
@@ -304,6 +476,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         </div>
         <ul className="nav-links">
           <li><a href="#" className="active">Home</a></li>
+          <li><a href="#features">Features</a></li>
           <li><a href="#how-it-works">How it works</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -377,10 +550,76 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
-      <section className="features">
+      <section className="features" id="features">
         <div className="features-head">
           <h2>Built for <span className="accent">Founders</span> who are tired of <span className="accent">guessing</span>.</h2>
-          <p>If you're a founder struggling to understand your market or unsure what to do next, you're in the right place.</p>
+          <p>If you're a founder struggling to understand your market or unsure what to do next, you're in the right place. Xvora gives you the clarity to move forward with confidence.</p>
+        </div>
+
+        <div className="feature-row">
+          <div className="feature-text">
+            <h3>Market Validation</h3>
+            <p>Don't know if your market is worth entering?</p>
+            <p>We'll help you understand market demand before you invest months building.</p>
+          </div>
+          <div className="feature-visual">
+            <div className="sticky-note">
+              <span className="tape"></span>
+              <p className="note-title">Worth entering this market?</p>
+              <p className="note-sub">&bull; Demand?</p>
+              <p className="note-sub">&bull; Competition?</p>
+              <p className="note-sub">&bull; Opportunity?</p>
+              <span className="note-circle">Need validation.</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="feature-row reverse">
+          <div className="feature-text">
+            <h3>Competitive Landscape</h3>
+            <p>Can't figure out who your competitors are?</p>
+            <p>Identify direct and indirect competitors, compare positioning, and uncover gaps they're leaving behind.</p>
+          </div>
+          <div className="feature-visual">
+            <div className="sticky-note">
+              <p className="note-title">Who are my competitors?</p>
+              <p className="note-sub">&bull; Direct? Indirect?</p>
+              <p className="note-sub">&bull; Who's growing faster?</p>
+              <p className="note-sub">&bull; Where's the gap?</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="feature-row">
+          <div className="feature-text">
+            <h3>Decision Making</h3>
+            <p>Overwhelmed by too many decisions?</p>
+            <p>Stop jumping between ideas. Xvora helps you prioritize the next move with confidence.</p>
+          </div>
+          <div className="feature-visual">
+            <div className="sticky-note">
+              <span className="tape"></span>
+              <p className="note-title">Too many decisions.</p>
+              <span className="note-circle">What should I focus on?</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="feature-row reverse">
+          <div className="feature-text">
+            <h3>Strategy</h3>
+            <p>Unsure what to do next?</p>
+            <p>Every insight ends with a clear recommendation so you're never left wondering what comes next.</p>
+          </div>
+          <div className="feature-visual">
+            <div className="sticky-note">
+              <p className="note-title">What do I do next?</p>
+              <p className="note-sub">&bull; Plan?</p>
+              <p className="note-sub">&bull; Build?</p>
+              <p className="note-sub">&bull; Launch?</p>
+              <span className="note-circle">Need a clear next step.</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -394,6 +633,29 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <div className="brief-card">
               <h3>Your Startup Brief</h3>
               <p className="brief-sub">Everything you need to move forward with confidence.</p>
+              <ul className="brief-list">
+                <li>
+                  <div className="brief-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#403690" strokeWidth="2"><circle cx="12" cy="12" r="10"/></svg></div>
+                  <div className="brief-item-text"><strong>Market Validation</strong><span>Know if your market is worth entering.</span></div>
+                </li>
+                <li>
+                  <div className="brief-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#403690" strokeWidth="2"><circle cx="9" cy="7" r="4"/></svg></div>
+                  <div className="brief-item-text"><strong>Competitor Landscape</strong><span>Understand who you are really competing with.</span></div>
+                </li>
+                <li>
+                  <div className="brief-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#403690" strokeWidth="2"><circle cx="12" cy="12" r="10"/></svg></div>
+                  <div className="brief-item-text"><strong>Growth opportunity</strong><span>Discover gaps and untapped opportunities.</span></div>
+                </li>
+                <li>
+                  <div className="brief-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#403690" strokeWidth="2"><circle cx="12" cy="12" r="10"/></svg></div>
+                  <div className="brief-item-text"><strong>Positioning Strategy</strong><span>See where you fit and how you can win.</span></div>
+                </li>
+                <li>
+                  <div className="brief-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#403690" strokeWidth="2"><circle cx="12" cy="12" r="10"/></svg></div>
+                  <div className="brief-item-text"><strong>Recommended next steps</strong><span>Get one clear, prioritized action to take next.</span></div>
+                </li>
+              </ul>
+              <p className="ready-note">Ready for <span className="squiggle">review?</span></p>
             </div>
           </div>
         </div>
@@ -405,11 +667,63 @@ export default function LandingPage({ onStart }: LandingPageProps) {
       <section className="steps-section" id="how-it-works">
         <p className="eyebrow">HOW XVORA WORKS</p>
         <h2>From idea to clarity in 3 simple steps.</h2>
+        <div className="steps-row">
+          <div className="step-card">
+            <span className="step-num">01</span>
+            <div className="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#403690" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg></div>
+            <h4>Tell us about your startup</h4>
+            <p>Share your idea, target audience, and what you're building.</p>
+          </div>
+          <span className="step-arrow">&┄┄&</span>
+          <div className="step-card">
+            <span className="step-num">02</span>
+            <div className="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#403690" strokeWidth="2"><circle cx="11" cy="11" r="8"/></svg></div>
+            <h4>Xvora researches your market</h4>
+            <p>Our AI analyzes the market, competitors, and opportunities behind the scenes.</p>
+          </div>
+          <span className="step-arrow">&┄┄&</span>
+          <div className="step-card">
+            <span className="step-num">03</span>
+            <div className="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#403690" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16"/></svg></div>
+            <h4>Get your Startup Brief</h4>
+            <p>Receive a personalized strategy with clear insights and next steps.</p>
+          </div>
+        </div>
       </section>
 
       <section className="faq-section" id="faq">
         <h2>FAQ</h2>
         <p className="subtext">Everything you need to know before analyzing your startup.</p>
+        <div className="faq-list">
+          <details className="faq-item">
+            <summary>What exactly does Xvora analyze?<span className="plus">+</span></summary>
+            <p>Xvora researches your market, identifies your competitors, uncovers opportunities, and creates a personalized strategy so you know exactly what to do next.</p>
+          </details>
+          <details className="faq-item">
+            <summary>Who is Xvora built for?<span className="plus">+</span></summary>
+            <p>Xvora is designed for solo founders, first-time founders, indie hackers, and small teams who want to validate ideas before spending months building.</p>
+          </details>
+          <details className="faq-item">
+            <summary>How long does an analysis take?<span className="plus">+</span></summary>
+            <p>Most analyses are completed within a few minutes.</p>
+          </details>
+          <details className="faq-item">
+            <summary>What makes Xvora different from ChatGPT?<span className="plus">+</span></summary>
+            <p>ChatGPT answers questions. Xvora continuously researches your market, remembers your startup, and turns scattered information into one clear strategy tailored to your business.</p>
+          </details>
+          <details className="faq-item">
+            <summary>Is my startup information private?<span className="plus">+</span></summary>
+            <p>Yes. Your ideas and analysis remain private and are never shared with other users.</p>
+          </details>
+          <details className="faq-item">
+            <summary>What do I receive after the analysis?<span className="plus">+</span></summary>
+            <p>You'll receive a personalized Startup Brief with market validation, competitor insights, opportunity mapping, positioning recommendations, and clear next steps.</p>
+          </details>
+          <details className="faq-item">
+            <summary>Will my Startup Brief change over time?<span className="plus">+</span></summary>
+            <p>Yes. As markets evolve and competitors change, Xvora can continue researching and keep your Startup Brief up to date.</p>
+          </details>
+        </div>
       </section>
 
       <section>
@@ -423,8 +737,33 @@ export default function LandingPage({ onStart }: LandingPageProps) {
       <footer className="site-footer">
         <div className="footer-top">
           <div className="footer-brand">
+            <img src="logo.png" alt="Xvora" className="brand-logo" style={{ marginBottom: "12px" }} />
             <p>Great ideas deserve better decisions.<br/>Research deeply. Present simply.</p>
           </div>
+          <div className="footer-col">
+            <h5>Product</h5>
+            <a href="#">Features</a>
+            <a href="#how-it-works">How it Works</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div className="footer-col">
+            <h5>Company</h5>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+          </div>
+          <div className="footer-col">
+            <h5>Legal</h5>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <div className="socials">
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+          </div>
+          <p>&copy; 2026 Xvora. All rights reserved.</p>
         </div>
       </footer>
     </div>
