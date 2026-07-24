@@ -300,7 +300,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
       <section className="features" id="features">
         <div className="features-head">
           <h2>Built for <span className="accent">Founders</span> who are tired of <span className="accent">guessing</span>.</h2>
-          <p>If you're a founder struggling to understand your market or unsure what to do next, you're in the right place.</p>
+          <p>If you're a founder struggling to understand your market or unsure what to do next, you're in the right place. Xvora gives you the clarity to move forward with confidence.</p>
         </div>
 
         <div className="feature-row">
@@ -315,6 +315,50 @@ export default function LandingPage({ onStart }: LandingPageProps) {
               <p className="note-sub">&bull; Demand?</p>
               <p className="note-sub">&bull; Competition?</p>
               <span className="note-circle">Need validation.</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="feature-row reverse">
+          <div className="feature-text">
+            <h3>Competitive Landscape</h3>
+            <p>Can't figure out who your competitors are?</p>
+            <p>Identify direct and indirect competitors, compare positioning, and uncover gaps they're leaving behind.</p>
+          </div>
+          <div className="feature-visual">
+            <div className="sticky-note">
+              <p className="note-title">Who are my competitors?</p>
+              <p className="note-sub">Direct? Indirect?</p>
+              <p className="note-sub">Where's the gap?</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="feature-row">
+          <div className="feature-text">
+            <h3>Decision Making</h3>
+            <p>Overwhelmed by too many decisions?</p>
+            <p>Stop jumping between ideas. Xvora helps you prioritize the next move with confidence.</p>
+          </div>
+          <div className="feature-visual">
+            <div className="sticky-note">
+              <p className="note-title">Too many decisions.</p>
+              <span className="note-circle">What should I focus on?</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="feature-row reverse">
+          <div className="feature-text">
+            <h3>Strategy</h3>
+            <p>Unsure what to do next?</p>
+            <p>Every insight ends with a clear recommendation so you're never left wondering what comes next.</p>
+          </div>
+          <div className="feature-visual">
+            <div className="sticky-note">
+              <p className="note-title">What do I do next?</p>
+              <p className="note-sub">&bull; Plan? &bull; Build? &bull; Launch?</p>
+              <span className="note-circle">Need a clear next step.</span>
             </div>
           </div>
         </div>
@@ -340,6 +384,18 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <li>
                   <div className="brief-icon">🎯</div>
                   <div className="brief-item-text"><strong>Competitor Landscape</strong><span>Understand who you are really competing with.</span></div>
+                </li>
+                <li>
+                  <div className="brief-icon">🚀</div>
+                  <div className="brief-item-text"><strong>Growth opportunity</strong><span>Discover gaps and untapped opportunities.</span></div>
+                </li>
+                <li>
+                  <div className="brief-icon">📈</div>
+                  <div className="brief-item-text"><strong>Positioning Strategy</strong><span>See where you fit and how you can win.</span></div>
+                </li>
+                <li>
+                  <div className="brief-icon">✅</div>
+                  <div className="brief-item-text"><strong>Recommended next steps</strong><span>Get one clear, prioritized action to take next.</span></div>
                 </li>
               </ul>
             </div>
@@ -381,11 +437,31 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         <div className="faq-list">
           <details className="faq-item">
             <summary>What exactly does Xvora analyze?<span>+</span></summary>
-            <p>Xvora researches your market, identifies your competitors, uncovers opportunities, and creates a personalized strategy.</p>
+            <p>Xvora researches your market, identifies your competitors, uncovers opportunities, and creates a personalized strategy so you know exactly what to do next.</p>
           </details>
           <details className="faq-item">
             <summary>Who is Xvora built for?<span>+</span></summary>
-            <p>Xvora is designed for solo founders, first-time founders, and indie hackers wanting to validate ideas quickly.</p>
+            <p>Xvora is designed for solo founders, first-time founders, indie hackers, and small teams who want to validate ideas before spending months building.</p>
+          </details>
+          <details className="faq-item">
+            <summary>How long does an analysis take?<span>+</span></summary>
+            <p>Most analyses are completed within a few minutes.</p>
+          </details>
+          <details className="faq-item">
+            <summary>What makes Xvora different from ChatGPT?<span>+</span></summary>
+            <p>ChatGPT answers questions. Xvora continuously researches your market, remembers your startup, and turns scattered information into one clear strategy tailored to your business.</p>
+          </details>
+          <details className="faq-item">
+            <summary>Is my startup information private?<span>+</span></summary>
+            <p>Yes. Your ideas and analysis remain private and are never shared with other users.</p>
+          </details>
+          <details className="faq-item">
+            <summary>What do I receive after the analysis?<span>+</span></summary>
+            <p>You'll receive a personalized Startup Brief with market validation, competitor insights, opportunity mapping, positioning recommendations, and clear next steps.</p>
+          </details>
+          <details className="faq-item">
+            <summary>Will my Startup Brief change over time?<span>+</span></summary>
+            <p>Yes. As markets evolve and competitors change, Xvora can continue researching and keep your Startup Brief up to date.</p>
           </details>
         </div>
       </section>
@@ -409,6 +485,17 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <h5>Product</h5>
             <a href="#">Features</a>
             <a href="#how-it-works">How it Works</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div className="footer-col">
+            <h5>Company</h5>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+          </div>
+          <div className="footer-col">
+            <h5>Legal</h5>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
           </div>
         </div>
         <div className="footer-bottom">
