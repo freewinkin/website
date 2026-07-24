@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import './XvoraLanding.css';
+import './LandingPage.css';
 
-interface XvoraLandingProps {
-  onAnalyze?: () => void;
+interface LandingPageProps {
+  onStart?: () => void;
 }
 
-export default function XvoraLanding({ onAnalyze }: XvoraLandingProps) {
+export default function LandingPage({ onStart }: LandingPageProps) {
   // Load the Google Fonts used by the design (Geist + Kalam)
   useEffect(() => {
     const existing = document.getElementById('xvora-fonts');
@@ -32,7 +32,7 @@ export default function XvoraLanding({ onAnalyze }: XvoraLandingProps) {
   }, []);
 
   const handleAnalyzeClick = () => {
-    if (onAnalyze) onAnalyze();
+    if (onStart) onStart();
   };
 
   return (
