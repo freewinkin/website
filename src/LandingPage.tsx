@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css'; // Make sure this matches your CSS file name
 
-function App() {
+function LandingPage({ onStart }: { onStart: () => void }) {
   return (
     <>
       <nav className="navbar">
@@ -15,7 +15,7 @@ function App() {
           <li><a href="#">How it works</a></li>
           <li><a href="#">FAQ</a></li>
         </ul>
-        <button className="signin-btn">Sign-In</button>
+        <button onClick={onStart} className="signin-btn">Sign-In</button>
       </nav>
 
       <section className="hero">
@@ -23,8 +23,8 @@ function App() {
           <h1>Great ideas fail when founders don't know what to do next.</h1>
           <p>Xvora researches your competitors, analyzes your market, and tells you exactly where your startup can win&mdash;in minutes</p>
           <div className="hero-actions">
-            <button className="btn-primary">Analyze My Startup</button>
-            <button className="btn-secondary">View Demo</button>
+            <button onClick={onStart} className="btn-primary">Analyze My Startup</button>
+            <button onClick={onStart} className="btn-secondary">View Demo</button>
           </div>
         </div>
 
@@ -126,7 +126,7 @@ function App() {
             <p>We'll help you understand market demand before you invest months building.</p>
           </div>
           <div className="feature-visual">
-            <div className="sticky-note" style={{ '--tilt': '-2deg' }}>
+            <div className="sticky-note" style={{ transform: 'rotate(-2deg)' }}>
               <span className="tape"></span>
               <p className="note-title">Worst entering<br />this market?</p>
               <svg className="doodle" viewBox="0 0 300 130" fill="none" stroke="#1a1a1a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -151,7 +151,7 @@ function App() {
             <p>Identify direct and indirect competitors, compare positioning, and uncover gaps they're leaving behind.</p>
           </div>
           <div className="feature-visual">
-            <div className="sticky-note" style={{ '--tilt': '2deg' }}>
+            <div className="sticky-note" style={{ transform: 'rotate(2deg)' }}>
               <p className="note-title">Who are my<br />competitors?</p>
               <svg className="doodle" viewBox="0 0 300 110" fill="none" stroke="#1a1a1a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="30" y="30" width="46" height="60" rx="2" />
@@ -176,7 +176,7 @@ function App() {
             <p>Stop jumping between ideas. Xvora helps you prioritize the next move with confidence.</p>
           </div>
           <div className="feature-visual">
-            <div className="sticky-note" style={{ '--tilt': '-1.5deg' }}>
+            <div className="sticky-note" style={{ transform: 'rotate(-1.5deg)' }}>
               <span className="tape"></span>
               <p className="note-title">Too many<br />decisions.</p>
               <svg className="doodle" viewBox="0 0 300 110" fill="none" stroke="#1a1a1a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -204,7 +204,7 @@ function App() {
             <p>Every insight ends with a clear recommendation so you're never left wondering what comes next.</p>
           </div>
           <div className="feature-visual">
-            <div className="sticky-note" style={{ '--tilt': '1.5deg' }}>
+            <div className="sticky-note" style={{ transform: 'rotate(1.5deg)' }}>
               <p className="note-title">What do<br />I do next?</p>
               <svg className="doodle" viewBox="0 0 260 60" fill="none" stroke="#1a1a1a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="20" cy="30" r="15" /><text x="15" y="36" fontFamily="Kalam" fontSize="15" stroke="none" fill="#1a1a1a">1</text>
@@ -269,7 +269,7 @@ function App() {
         </div>
 
         <div className="brief-cta">
-          <button className="btn-primary">Analyze My Startup</button>
+          <button onClick={onStart} className="btn-primary">Analyze My Startup</button>
         </div>
       </section>
 
@@ -342,7 +342,7 @@ function App() {
         <div className="cta-band">
           <h2>Ready to stop guessing?</h2>
           <p>Get your personalized Startup Brief today.</p>
-          <button className="btn-primary">Analyze My Startup &rarr;</button>
+          <button onClick={onStart} className="btn-primary">Analyze My Startup &rarr;</button>
         </div>
       </section>
 
@@ -383,4 +383,4 @@ function App() {
   );
 }
 
-export default App;
+export default LandingPage;
