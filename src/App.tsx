@@ -11,6 +11,7 @@ export default function App() {
         <LandingPage onStart={() => setActiveView("onboarding")} />
       ) : (
         <XvoraOnboarding
+          onBack={() => setActiveView("landing")}
           onComplete={(data) => {
             // TODO: hand this off to wherever the Startup Brief gets generated/displayed.
             console.log("Startup Brief inputs:", data);
