@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css'; // Make sure this matches your CSS file name
+import './LandingPage.css'; // Make sure this matches your CSS file name
 
 function LandingPage({ onStart }: { onStart: () => void }) {
   return (
