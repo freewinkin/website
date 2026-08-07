@@ -3,7 +3,7 @@ import './LandingPage.css'; // Make sure this matches your CSS file name
 
 function LandingPage({ onStart }: { onStart: () => void }) {
   return (
-    <>
+    <div style={{ overflowX: 'hidden' }}>
       <nav className="navbar">
         <div className="brand">
           {/* Swap the src below for your logo file, e.g. src="logo.svg" */}
@@ -112,20 +112,20 @@ function LandingPage({ onStart }: { onStart: () => void }) {
       </section>
 
       {/* ============ FEATURES ============ */}
-      <section className="features">
+      <section className="features" style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 48px' }}>
         <div className="features-head">
           <h2>Built for <span className="accent">Founders</span> who are tired of <span className="accent">guessing</span>.</h2>
           <p>If you're a founder struggling to understand your market or unsure what to do next, you're in the right place. Xvora gives you the clarity to move forward with confidence.</p>
         </div>
 
         {/* Market Validation */}
-        <div className="feature-row">
-          <div className="feature-text">
+        <div className="feature-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '64px', margin: '60px 0' }}>
+          <div className="feature-text" style={{ flex: '1' }}>
             <h3>Market Validation</h3>
             <p>Don't know if your market is worth entering?</p>
             <p>We'll help you understand market demand before you invest months building.</p>
           </div>
-          <div className="feature-visual">
+          <div className="feature-visual" style={{ flex: '1', display: 'flex', justifyContent: 'center' }}>
             <div className="sticky-note" style={{ transform: 'rotate(-2deg)' }}>
               <span className="tape"></span>
               <p className="note-title">Worst entering<br />this market?</p>
@@ -144,13 +144,13 @@ function LandingPage({ onStart }: { onStart: () => void }) {
         </div>
 
         {/* Competitive Landscape */}
-        <div className="feature-row reverse">
-          <div className="feature-text">
+        <div className="feature-row reverse" style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', justifyContent: 'space-between', gap: '64px', margin: '60px 0' }}>
+          <div className="feature-text" style={{ flex: '1' }}>
             <h3>Competitive Landscape</h3>
             <p>Can't figure out who your competitors are?</p>
             <p>Identify direct and indirect competitors, compare positioning, and uncover gaps they're leaving behind.</p>
           </div>
-          <div className="feature-visual">
+          <div className="feature-visual" style={{ flex: '1', display: 'flex', justifyContent: 'center' }}>
             <div className="sticky-note" style={{ transform: 'rotate(2deg)' }}>
               <p className="note-title">Who are my<br />competitors?</p>
               <svg className="doodle" viewBox="0 0 300 110" fill="none" stroke="#1a1a1a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -169,13 +169,13 @@ function LandingPage({ onStart }: { onStart: () => void }) {
         </div>
 
         {/* Decision Making */}
-        <div className="feature-row">
-          <div className="feature-text">
+        <div className="feature-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '64px', margin: '60px 0' }}>
+          <div className="feature-text" style={{ flex: '1' }}>
             <h3>Decision Making</h3>
             <p>Overwhelmed by too many decisions?</p>
             <p>Stop jumping between ideas. Xvora helps you prioritize the next move with confidence.</p>
           </div>
-          <div className="feature-visual">
+          <div className="feature-visual" style={{ flex: '1', display: 'flex', justifyContent: 'center' }}>
             <div className="sticky-note" style={{ transform: 'rotate(-1.5deg)' }}>
               <span className="tape"></span>
               <p className="note-title">Too many<br />decisions.</p>
@@ -197,13 +197,13 @@ function LandingPage({ onStart }: { onStart: () => void }) {
         </div>
 
         {/* Strategy */}
-        <div className="feature-row reverse">
-          <div className="feature-text">
+        <div className="feature-row reverse" style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', justifyContent: 'space-between', gap: '64px', margin: '60px 0' }}>
+          <div className="feature-text" style={{ flex: '1' }}>
             <h3>Strategy</h3>
             <p>Unsure what to do next?</p>
             <p>Every insight ends with a clear recommendation so you're never left wondering what comes next.</p>
           </div>
-          <div className="feature-visual">
+          <div className="feature-visual" style={{ flex: '1', display: 'flex', justifyContent: 'center' }}>
             <div className="sticky-note" style={{ transform: 'rotate(1.5deg)' }}>
               <p className="note-title">What do<br />I do next?</p>
               <svg className="doodle" viewBox="0 0 260 60" fill="none" stroke="#1a1a1a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -379,7 +379,7 @@ function LandingPage({ onStart }: { onStart: () => void }) {
           <p>&copy; 2026 Xvora. All rights reserved.</p>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 
