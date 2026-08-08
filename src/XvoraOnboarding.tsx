@@ -257,14 +257,19 @@ export default function XvoraOnboarding({ onBack, onComplete }: OnboardingProps)
                       <p className="upload-title">Already have this written?</p>
                       <p className="upload-desc">Upload a pitch deck, vision document, one-pager, PRD, or business plan instead.</p>
                       <div className="upload-note">
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <rect x="3" y="11" width="18" height="11" rx="2" />
-                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                        </svg>
-                        <span>Your document stays private and is only used to generate your Startup Brief.</span>
                       </div>
+  <div style={{ width: "14px", height: "14px", flexShrink: "0", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "14px", height: "14px" }}>
+      <rect x="3" y="11" width="18" height="11" rx="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+  </div>
+  <span>Your document stays private and is only used to generate your Startup Brief.</span>
+</div>
+                      
                     </div>
                   </div>
+                  
                   <button type="button" className="btn-upload">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
