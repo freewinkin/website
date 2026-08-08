@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LandingPage from "./LandingPage";
 import XvoraOnboarding from "./XvoraOnboarding";
-import Startupbrief from "./Startupbrief";
+import StartupBrief from "./StartupBrief";
 
 export default function App() {
   const [activeView, setActiveView] = useState<"landing" | "onboarding" | "brief">("landing");
@@ -22,7 +22,7 @@ export default function App() {
         />
       )}
       {activeView === "brief" && (
-        <Startupbrief
+        <StartupBrief
           data={onboardingData}
           onBack={() => setActiveView("landing")}
         />
