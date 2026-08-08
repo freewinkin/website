@@ -148,7 +148,7 @@ export default function XvoraOnboarding({ onBack, onComplete }: OnboardingProps)
         .upload-title { font-size: 14px; font-weight: 700; color: #0f0f14; margin: 0 0 3px; }
         .upload-desc { font-size: 12.5px; color: #6b7280; margin: 0 0 8px; max-width: 380px; }
         .upload-note { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #9ca3af; }
-        .btn-upload { background: #fff; border: 1px solid #e6e6ef; color: #403690; font-size: 12.5px; font-weight: 700; padding: 9px 16px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+        .btn-upload { background: #fff; border: 1.5px solid #e6e6ef; color: #403690; font-size: 12.5px; font-weight: 700; padding: 9px 16px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 7px; white-space: nowrap; }
         .btn-upload:hover { border-color: #403690; }
         .goal-option { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border: 1.5px solid #e6e6ef; border-radius: 10px; margin-bottom: 10px; cursor: pointer; text-align: left; font-size: 14px; }
         .goal-option.selected { border-color: #403690; background: #ece9fd; }
@@ -257,19 +257,10 @@ export default function XvoraOnboarding({ onBack, onComplete }: OnboardingProps)
                       <p className="upload-title">Already have this written?</p>
                       <p className="upload-desc">Upload a pitch deck, vision document, one-pager, PRD, or business plan instead.</p>
                       <div className="upload-note">
+                        <span>🔒 Your document stays private and is only used to generate your Startup Brief.</span>
                       </div>
-  <div style={{ width: "14px", height: "14px", flexShrink: "0", display: "flex", alignItems: "center", justifyContent: "center" }}>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "14px", height: "14px" }}>
-      <rect x="3" y="11" width="18" height="11" rx="2" />
-      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-    </svg>
-  </div>
-  <span>Your document stays private and is only used to generate your Startup Brief.</span>
-</div>
-                      
                     </div>
                   </div>
-                  
                   <button type="button" className="btn-upload">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
