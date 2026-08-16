@@ -5,6 +5,7 @@ import type { OnboardingData } from "./XvoraOnboarding";
 interface StartupBriefProps {
   data?: OnboardingData;
   onBack?: () => void;
+  onViewFullSummary?: () => void;
 }
 
 /* ---------- tiny inline icon set (no external deps) ---------- */
@@ -68,7 +69,7 @@ const Icon = {
   ),
 };
 
-export default function StartupBrief({ data, onBack }: StartupBriefProps) {
+export default function StartupBrief({ data, onBack, onViewFullSummary }: StartupBriefProps) {
   const startupName = data?.startupName?.trim() || "Xvora";
   const generatedDate = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
   const generatedTime = new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
@@ -243,7 +244,16 @@ export default function StartupBrief({ data, onBack }: StartupBriefProps) {
               </div>
             </div>
 
-            <a className="sb-view-link" href="#">View full executive summary {Icon.arrowRight}</a>
+            <a
+              className="sb-view-link"
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onViewFullSummary) onViewFullSummary();
+              }}
+            >
+              View full executive summary {Icon.arrowRight}
+            </a>
           </section>
 
           {/* SECTION 2 — COMPETITOR & RISK RADAR */}
